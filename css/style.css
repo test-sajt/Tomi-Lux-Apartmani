@@ -681,6 +681,7 @@ h3 {
 .strip {
   flex: var(--fw,1) 1 0;
   min-height: 0;
+  margin: 0;
   margin-top: -3.4%;
   filter: drop-shadow(0 0 14px rgba(212,173,99,.28)) drop-shadow(0 14px 22px rgba(0,0,0,.55));
   translate: calc(var(--mx,0)*var(--k,20)*1px) calc(var(--my,0)*var(--k,20)*.45px);
@@ -2091,5 +2092,159 @@ body.menu-open{overflow:hidden}
 @media (max-width: 600px) {
   .gmap {
     aspect-ratio: 4/3;
+  }
+}
+
+
+/* ==========================================================================
+   Tomi Lux - ISPRAVKE ZA TELEFON
+   ========================================================================== */
+
+/* hero: kad se slike završe, pozadina se mekano utapa u tamnu boju (bez oštre ivice) */
+.hero::before {
+  -webkit-mask-image: linear-gradient(#000 78%, transparent);
+  mask-image: linear-gradient(#000 78%, transparent);
+}
+
+@media (max-width: 900px) {
+  /* 4 jednake trake preko cele širine, sa tankim ravnomernim razmakom */
+  .strips {
+    height: clamp(210px, 58vw, 340px);
+  }
+  .strip {
+    flex: 1 1 0;
+    margin: 0;
+    margin-left: calc(-2.4% + 5px);
+  }
+  .strip:first-child {
+    margin-left: 0;
+  }
+  .badge {
+    right: var(--gut);
+    bottom: -26px;
+  }
+  .hero-vis {
+    margin-bottom: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  /* manje praznog prostora između sekcija */
+  .sec {
+    padding-block: 56px;
+  }
+  .sh {
+    margin-bottom: 28px;
+  }
+  .h2 {
+    font-size: clamp(1.85rem, 8vw, 2.3rem);
+  }
+
+  /* kartice sa prednostima: ikona levo, tekst desno (kraće za skrolovanje) */
+  .feats {
+    gap: 12px;
+  }
+  .feat {
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 16px;
+    row-gap: 4px;
+    align-items: center;
+    padding: 18px;
+  }
+  .feat .ico {
+    grid-row: 1 / span 2;
+    width: 48px;
+    height: 48px;
+  }
+  .feat h3 {
+    font-size: 1.2rem;
+  }
+  .feat p {
+    font-size: .88rem;
+  }
+
+  /* adresa i mapa preko cele širine */
+  .addr {
+    width: 100%;
+  }
+  .loc-copy {
+    gap: 18px;
+  }
+
+  /* video: manji, da se vide barem dva odjednom */
+  .vid {
+    flex: 0 0 46%;
+  }
+  .vids {
+    gap: 10px;
+  }
+
+  /* instagram kartica */
+  .ig-card {
+    padding: 26px 22px;
+    border-radius: 22px;
+  }
+  .stat b {
+    font-size: 2.3rem;
+  }
+
+  /* formular: dugme preko cele širine (inline stil se mora pregaziti sa !important) */
+  .form > .btn {
+    justify-self: stretch !important;
+  }
+  .form {
+    padding: 22px 18px;
+  }
+  .k-row {
+    padding: 14px;
+    gap: 12px;
+  }
+
+  /* footer centriran */
+  .foot-in {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+}
+
+/* veoma uski telefoni (iPhone SE, mali Android): da zaglavlje ne probije ekran */
+@media (max-width: 400px) {
+  .nav-in {
+    gap: 8px;
+  }
+  .brand {
+    gap: 8px;
+  }
+  .brand-t b {
+    font-size: 1.05rem;
+    letter-spacing: .1em;
+  }
+  .brand-t i {
+    letter-spacing: .38em;
+  }
+  .nav-r {
+    gap: 8px;
+  }
+  .lang span {
+    padding: .6em .7em;
+  }
+  .burger {
+    width: 40px;
+    height: 40px;
+  }
+  .burger i {
+    left: 11px;
+    right: 11px;
+  }
+  .burger i:nth-child(1) {
+    top: 16px;
+  }
+  .burger i:nth-child(2) {
+    top: 23px;
+  }
+  .nav.open .burger i:nth-child(1),
+  .nav.open .burger i:nth-child(2) {
+    top: 19.5px;
   }
 }
