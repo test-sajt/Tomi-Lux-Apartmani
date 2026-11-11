@@ -239,7 +239,7 @@ function whenSized(im,cb){if(!im)return;if(imgRatio(im))cb();else im.addEventLis
     var list=[];
     tiles.forEach(function(t){var has=!!$('img',t);t.classList.toggle('is-empty',!has);if(has) list.push(t)});
     if(!list.length) return;
-    var T=clampN(W/3.6,180,360),maxH=T*1.6;
+    var T=W<600?clampN(W*.6,210,300):clampN(W/3.6,180,360),maxH=T*1.6; /* telefon: veće fotografije, 1-2 u redu */
     var rs=list.map(function(t){return clampN(t._r,.6,2.2)});
     var parts=partition(rs,W,T);
     var nsig=parts.map(function(p){return p.join('-')}).join('|')+'#'+list.length;
